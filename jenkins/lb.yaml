@@ -1,0 +1,23 @@
+##########################################################################################################################
+#   Lisandro Antonio Rafaelano Colocho
+#
+# LoadBalancer create a endpoint with REGIONAL IP
+# It doesnot support url-mapping as ingress controller
+# For more iformation pleasee read this article
+############################################################################################################################
+
+kind: Service
+apiVersion: v1
+metadata:
+  name:  jenkins
+spec:
+   # [START SELECTOR] 
+  selector:
+    app.kubernetes.io/component: jenkins-controller
+    app.kubernetes.io/instance: cd-jenkins 
+   # [END SELECTOR] 
+  type:  LoadBalancer
+  ports:
+  - name: jenkins
+    port: 80
+    targetPort: 8080
