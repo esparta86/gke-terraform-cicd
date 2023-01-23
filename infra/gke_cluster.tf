@@ -14,7 +14,7 @@ data "google_compute_subnetwork" "subnetwork" {
 
 module "gke" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
-  version                    = "16.0.1"
+  version                    = "24.0.0"
   project_id                 = var.project
   region                     = var.region
   zones                      = var.zones
@@ -73,7 +73,7 @@ module "gke" {
     }
   }
 
-  node_pools_taints = {
+  node_pools_tain = {
     all = []
 
     default-node-pool = [

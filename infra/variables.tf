@@ -1,5 +1,5 @@
 variable "region" {
-  default = "us-west1"
+  type = string
 }
 
 variable "project" {
@@ -69,3 +69,28 @@ variable "subnetwork" {
   default = "custom-subnet"
   
 }
+
+
+
+
+variable "project_id" {
+ type = map(any)
+}
+
+variable "routing_mode_vpc" {
+  type = string
+}
+
+
+variable "ip-ranges-env" {
+  type = map(any)
+}
+
+
+variable "config-routers" {
+  type = map(any)
+  default = {
+    "stage-asn" =  "65001"
+  }
+}
+

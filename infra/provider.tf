@@ -1,12 +1,12 @@
 terraform {
   required_providers {
     google = {
-      source  = "hashicorp/google"
-      version = "> 3.53"
+      source  = "registry.terraform.io/hashicorp/google"
+      version = "~> 4.0"
     }
   }
 
-  required_version = ">= 0.14.9"
+  required_version = ">= 1.3.1"
 
   backend "gcs" {
     credentials = "esparta86project-col886.json"
@@ -19,7 +19,7 @@ provider "google" {
 
   credentials = file("esparta86project-col886.json")
   region      = var.region
-  project     = var.project
+  project     = var.project_id[terraform.workspace]
 }
 
 
